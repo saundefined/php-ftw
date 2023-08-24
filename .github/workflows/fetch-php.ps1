@@ -20,7 +20,7 @@ if (-not $vs) {
 }
 
 $what = if ($version -match "[a-z]") {"qa"} else {"releases"}
-$baseurl = "https://windows.php.net/downloads/$what"
+$baseurl = "https://tools.sergeypanteleev.com/windows/downloads/$what"
 $tspart = if ($ts -eq "nts") {"nts-Win32"} else {"Win32"}
 
 $fname = "php-$version-$tspart-$vs-$arch.zip"
