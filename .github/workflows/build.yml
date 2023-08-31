@@ -12,8 +12,8 @@ jobs:
   build:
     strategy:
       matrix:
-        arch: [x64, x86]
-        ts: [nts, ts]
+        arch: [ x64 ]
+        ts: [ nts ]
     runs-on: windows-2019
     steps:
       - name: Checkout php-ftw
@@ -34,3 +34,14 @@ jobs:
         with:
           name: artifacts
           path: artifacts
+      - uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: artifacts
+          host: 37.140.192.73
+          port: 21
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          secure: false
+          remote-path: /www/tools.s-panteleev.ru/windows/downloads/test/
+
